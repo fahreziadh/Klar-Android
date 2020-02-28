@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_normal_edittext"
+    android:padding="@dimen/normal_padding"
+    android:hint="Search Class"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

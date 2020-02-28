@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_padding"
+        android:alpha="0.7"
+        android:text="Discussion"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/normal_radius"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_button_3"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:hint="Hi class?"
+                android:padding="@dimen/normal_padding" />
+
+            <ImageView
+                android:clickable="true"
+                android:background="?selectableItemBackground"
+                android:layout_marginBottom="@dimen/normal_radius"
+                android:layout_marginLeft="@dimen/normal_radius"
+                android:src="@drawable/attach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="bottom|center_horizontal"
+            android:paddingBottom="@dimen/normal_radius">
+
+            <TextView
+                android:textStyle="bold"
+                android:paddingLeft="@dimen/normal_radius"
+                android:paddingRight="@dimen/normal_radius"
+                android:paddingTop="@dimen/small_margin"
+                android:paddingBottom="@dimen/small_margin"
+                android:clickable="true"
+                android:background="?selectableItemBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:layout_margin="4dp"
+    android:background="@color/white"
+    android:orientation="vertical"
+    app:cardCornerRadius="@dimen/normal_radius"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/normal_radius">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp">
+
+            <ImageView
+                android:id="@+id/student_image"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="@dimen/normal_radius"
+                android:background="@color/grey" />
+
+            <ImageView
+                android:id="@+id/checklist"
+                android:visibility="gone"
+                android:layout_marginLeft="@dimen/normal_padding"
+                android:layout_gravity="bottom|right"
+                android:src="@mipmap/correct"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/normal_padding"
+            android:text="Fahrezi adha"
+            android:textAppearance="@style/TextAppearance.Compat.Notification.Title" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

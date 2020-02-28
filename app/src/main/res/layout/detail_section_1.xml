@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/normal_radius"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:background="@drawable/bg_normal_edittext"
+        android:orientation="horizontal"
+        android:padding="@dimen/normal_radius">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:src="@drawable/time" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_radius"
+            android:layout_weight="8"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="Next class on" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="Today"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/normal_radius"
+        android:layout_weight="6"
+        android:background="@drawable/bg_button_3"
+        android:clickable="true"
+        android:id="@+id/attendance"
+        android:maxLines="1"
+        android:padding="@dimen/normal_padding"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        android:text="Manage Attendance" />
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/normal_radius"
+        android:background="@drawable/bg_button_3"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:clickable="true"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+        <ImageView
+            android:src="@drawable/menu_1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -3,29 +3,26 @@ package id.fahrezi.klar.view.fragment
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 
 import id.fahrezi.klar.R
 import id.fahrezi.klar.viewmodel.AuthViewModel
 import kotlinx.android.synthetic.main.fragment_auth.*
-import android.text.TextUtils
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.airbnb.lottie.LottieAnimationView
 import id.fahrezi.klar.util.Validator
 import id.fahrezi.klar.service.model.Request.RegisterRequest
 import id.fahrezi.klar.service.model.Request.LoginRequest
+import id.fahrezi.klar.service.model.Response.AuthResponse
+import id.fahrezi.klar.service.repository.PreferenceHelper
 
 
 private const val ARG_PARAM1 = "param1"
@@ -38,7 +35,7 @@ class Auth : Fragment() {
 
     private var isLogin = false
     private lateinit var model: AuthViewModel
-    lateinit var dialog: AlertDialog.Builder
+    lateinit var alert: AlertDialog
 
     var LOADING = 1
     var ERROR = 2
@@ -62,20 +59,22 @@ class Auth : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        alert = AlertDialog.Builder(context!!).create()
+        checkAuth()
         setPrimaryButton()
         setSecondaryButton()
 
         //Handle Auth Response
         model.auth.observe(viewLifecycleOwner, Observer {
             if (it != null) {
-                lateinit var dialog: AlertDialog.Builder
-                Toast.makeText(context!!, it.accesstoken, Toast.LENGTH_SHORT).show()
+                successAuth(it)
             }
         })
 
         //Handle Auth Error
         model.error.observe(viewLifecycleOwner, Observer {
             if (it != null) {
+                alert.dismiss()
                 Toast.makeText(context!!, it.message, Toast.LENGTH_SHORT).show()
             }
         })
@@ -83,7 +82,7 @@ class Auth : Fragment() {
 
 
     fun showMessage(type: Int) {
-        dialog = AlertDialog.Builder(context!!)
+        var dialog = AlertDialog.Builder(context!!)
         var v = LayoutInflater.from(context).inflate(R.layout.dialog_message, null, false)
         var massage = v.findViewById<TextView>(R.id.message)
         var anim = v.findViewById<LottieAnimationView>(R.id.animation_view)
@@ -96,8 +95,15 @@ class Auth : Fragment() {
         }
 
         dialog.setView(v)
-        var alert = dialog.create()
+        alert = dialog.create()
         alert.show()
+    }
+
+    fun checkAuth() {
+        var accessToken = PreferenceHelper(context!!).accessToken
+        if (accessToken != "" || accessToken != null) {
+            findNavController().navigate(R.id.action_auth_to_home)
+        }
     }
 
     fun setPrimaryButton() {
@@ -117,6 +123,17 @@ class Auth : Fragment() {
                 }
             }
         }
+    }
+
+    fun successAuth(it: AuthResponse) {
+        alert.dismiss()
+        var pref = PreferenceHelper(context!!)
+        pref.accessToken = it.accesstoken
+        pref.userEmail = it.user.email
+        pref.userFullname = it.user.fullname
+        pref.userImageProfile = it.user.imageprofile
+        pref.userId = it.user.id
+        findNavController().navigate(R.id.action_auth_to_home)
     }
 
     fun validateForm(): Boolean {
@@ -167,6 +184,7 @@ class Auth : Fragment() {
     override fun onDetach() {
         super.onDetach()
         listener = null
+        alert.dismiss()
     }
 
     interface OnFragmentInteractionListener {

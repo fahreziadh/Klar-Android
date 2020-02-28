@@ -2,6 +2,7 @@ package id.fahrezi.klar.service.repository
 
 import com.squareup.moshi.Moshi
 import id.fahrezi.klar.service.Api
+import id.fahrezi.klar.service.model.Request.ChangeProfileRequest
 import id.fahrezi.klar.service.model.Request.LoginRequest
 import id.fahrezi.klar.service.model.Request.RegisterRequest
 import id.fahrezi.klar.service.model.Response.AuthResponse
@@ -15,6 +16,10 @@ class AuthRepository(private val api: Api) : BaseRepository() {
     }
     suspend fun login(request: LoginRequest):Response<AuthResponse>{
         val res = api.login(request).await()
+        return res
+    }
+    suspend fun changeProfile(request:ChangeProfileRequest):Response<String>{
+        val res=api.changeProfile(request).await()
         return res
     }
 }

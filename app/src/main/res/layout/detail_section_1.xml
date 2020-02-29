@@ -6,7 +6,9 @@
     android:orientation="horizontal">
 
     <LinearLayout
+        android:id="@+id/changeSchedule"
         android:layout_width="0dp"
+        android:clickable="true"
         android:layout_height="wrap_content"
         android:layout_weight="4"
         android:background="@drawable/bg_normal_edittext"
@@ -29,47 +31,52 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/startDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
-                android:text="Next class on" />
+                android:text="16 March" />
 
             <TextView
+                android:id="@+id/startTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
-                android:text="Today"
+                android:text="16:03"
                 android:textColor="@color/black" />
 
         </LinearLayout>
     </LinearLayout>
 
     <TextView
+        android:id="@+id/attendance"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/normal_radius"
         android:layout_weight="6"
         android:background="@drawable/bg_button_3"
         android:clickable="true"
-        android:id="@+id/attendance"
+        android:gravity="center"
         android:maxLines="1"
         android:padding="@dimen/normal_padding"
-        android:gravity="center"
+        android:text="Manage Attendance"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-        android:text="Manage Attendance" />
+        android:visibility="gone" />
 
     <LinearLayout
-        android:layout_marginLeft="@dimen/normal_radius"
-        android:background="@drawable/bg_button_3"
         android:layout_width="0dp"
-        android:gravity="center"
-        android:clickable="true"
         android:layout_height="wrap_content"
-        android:layout_weight="1" >
+        android:layout_marginLeft="@dimen/normal_radius"
+        android:layout_weight="1"
+        android:background="@drawable/bg_button_3"
+        android:clickable="true"
+        android:gravity="center"
+        android:visibility="gone">
+
         <ImageView
-            android:src="@drawable/menu_1"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            android:src="@drawable/menu_1" />
     </LinearLayout>
 
 </LinearLayout>

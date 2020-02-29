@@ -10,18 +10,21 @@ import id.fahrezi.klar.service.model.Response.ScheduleResponse
 import id.fahrezi.klar.viewmodel.HomeViewModel
 import java.text.SimpleDateFormat
 
-
-class ListScheduleViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
-    LayoutInflater.from(parent.context).inflate(
-        R.layout.card_schedule, parent, false
-    )
-) {
+class ListAllScheduleViewHolder(v: ViewGroup) :
+    RecyclerView.ViewHolder(
+        LayoutInflater.from(v.context).inflate(
+            R.layout.card_all_schedule,
+            v,
+            false
+        )
+    ) {
     private var parentView: LinearLayout
     private var location: TextView
     private var className: TextView
     private var classMajor: TextView
     private var classTime: TextView
     private var classDate: TextView
+
 
     init {
         parentView = itemView.findViewById(R.id.parentView)
@@ -33,10 +36,7 @@ class ListScheduleViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         classDate = itemView.findViewById(R.id.classDate)
     }
 
-    fun bind(
-        viewModel: HomeViewModel,
-        data: ScheduleResponse
-    ) {
+    fun bind(model: HomeViewModel, data: ScheduleResponse) {
         //date
         val dateParser = SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss")
         val dateFormatter = SimpleDateFormat("EEEE  dd MMMM yyyy")
@@ -53,9 +53,8 @@ class ListScheduleViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         classTime.text = timeOutput
         classDate.text = dateOutput
 
-
         parentView.setOnClickListener {
-            viewModel.navigateToClassDetail.postValue(HomeViewModel.Params(1, data))
+            model.navigateToClassDetail.postValue(HomeViewModel.Params(1, data))
         }
     }
 }

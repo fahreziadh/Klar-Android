@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
-    app:startDestination="@id/auth">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
 
     <fragment
         android:id="@+id/home"
         android:name="id.fahrezi.klar.view.fragment.Home"
-        android:label="Home" >
+        android:label="Home">
         <action
             android:id="@+id/action_home_to_search"
             app:destination="@id/search" />
@@ -17,11 +18,29 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
-             />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_home_to_classDetail"
             app:destination="@id/classDetail"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+            <argument
+                android:name="args"
+                android:defaultValue="1"
+                app:argType="integer" />
+        </action>
+        <action
+            android:id="@+id/action_home_to_changeProfile"
+            app:destination="@id/changeProfile"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_home_to_allSchedule"
+            app:destination="@id/allSchedule"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -30,16 +49,7 @@
     <fragment
         android:id="@+id/auth"
         android:name="id.fahrezi.klar.view.fragment.Auth"
-        android:label="Auth" >
-        <action
-            android:id="@+id/action_auth_to_home"
-            app:destination="@+id/home"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-    </fragment>
+        android:label="Auth" />
     <fragment
         android:id="@+id/search"
         android:name="id.fahrezi.klar.view.fragment.Search"
@@ -47,10 +57,17 @@
     <fragment
         android:id="@+id/classDetail"
         android:name="id.fahrezi.klar.view.fragment.ClassDetail"
-        android:label="ClassDetail" >
+        android:label="ClassDetail">
         <action
             android:id="@+id/action_classDetail_to_attendance"
             app:destination="@id/attendance" />
+        <action
+            android:id="@+id/action_classDetail_to_allSchedule"
+            app:destination="@id/allSchedule"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/attendance"
@@ -60,4 +77,20 @@
         android:id="@+id/createClass"
         android:name="id.fahrezi.klar.view.fragment.CreateClass"
         android:label="CreateClass" />
+    <fragment
+        android:id="@+id/changeProfile"
+        android:name="id.fahrezi.klar.view.fragment.ChangeProfile"
+        android:label="ChangeProfile" />
+    <fragment
+        android:id="@+id/allSchedule"
+        android:name="id.fahrezi.klar.view.fragment.AllSchedule"
+        android:label="AllSchedule">
+        <action
+            android:id="@+id/action_allSchedule_to_classDetail"
+            app:destination="@id/classDetail"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
 </navigation>

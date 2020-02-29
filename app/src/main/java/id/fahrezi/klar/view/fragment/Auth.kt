@@ -3,26 +3,27 @@ package id.fahrezi.klar.view.fragment
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.lifecycle.ViewModelProviders
-
-import id.fahrezi.klar.R
-import id.fahrezi.klar.viewmodel.AuthViewModel
-import kotlinx.android.synthetic.main.fragment_auth.*
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.airbnb.lottie.LottieAnimationView
-import id.fahrezi.klar.util.Validator
-import id.fahrezi.klar.service.model.Request.RegisterRequest
+import com.ale.listener.StartResponseListener
+import com.ale.rainbowsdk.RainbowSdk
+import id.fahrezi.klar.R
 import id.fahrezi.klar.service.model.Request.LoginRequest
+import id.fahrezi.klar.service.model.Request.RegisterRequest
 import id.fahrezi.klar.service.model.Response.AuthResponse
 import id.fahrezi.klar.service.repository.PreferenceHelper
+import id.fahrezi.klar.util.Validator
+import id.fahrezi.klar.viewmodel.AuthViewModel
+import kotlinx.android.synthetic.main.fragment_auth.*
 
 
 private const val ARG_PARAM1 = "param1"
@@ -101,8 +102,8 @@ class Auth : Fragment() {
 
     fun checkAuth() {
         var accessToken = PreferenceHelper(context!!).accessToken
-        if (accessToken != "" || accessToken != null) {
-            findNavController().navigate(R.id.action_auth_to_home)
+        if (accessToken != "") {
+            findNavController().popBackStack(R.id.home, true)
         }
     }
 
@@ -125,15 +126,17 @@ class Auth : Fragment() {
         }
     }
 
+
     fun successAuth(it: AuthResponse) {
         alert.dismiss()
         var pref = PreferenceHelper(context!!)
         pref.accessToken = it.accesstoken
         pref.userEmail = it.user.email
         pref.userFullname = it.user.fullname
+        pref.userName=it.user.username
         pref.userImageProfile = it.user.imageprofile
         pref.userId = it.user.id
-        findNavController().navigate(R.id.action_auth_to_home)
+        findNavController().popBackStack(R.id.home, false)
     }
 
     fun validateForm(): Boolean {

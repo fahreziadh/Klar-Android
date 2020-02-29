@@ -5,6 +5,7 @@ import id.fahrezi.klar.service.model.Response.*
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.*
+import java.lang.Class
 
 interface Api {
 
@@ -20,7 +21,7 @@ interface Api {
 
     //    Class
     @POST("api/class")
-    fun createClass(@Body request: ClassRequest): Deferred<Response<String>>
+    fun createClass(@Body request: ClassRequest): Deferred<Response<id.fahrezi.klar.service.model.Response.Class>>
 
     @GET("api/class")
     fun getListClass(): Deferred<Response<List<ClassResponse>>>
@@ -34,15 +35,15 @@ interface Api {
     @POST("api/schedule")
     fun createSchedule(@Body request:ScheduleRequest):Deferred<Response<String>>
 
-    @GET("api/shedule")
-    fun listSchedule(@Query("today") today:Boolean):Deferred<Response<List<ListScheduleResponse>>>
+    @GET("api/schedule")
+    fun listSchedule(@Query("today") today:String):Deferred<Response<List<ScheduleResponse>>>
 
     @GET("api/attendance")
     fun listAttendance(@Query("scheduleid") scheduleId:String):Deferred<Response<List<AttendanceResponse>>>
 
     @POST("api/attendance")
-    fun createAttendance(@Body request:AttendanceResponse):Deferred<Response<String>>
+    fun inputAttendance(@Body request:AttendanceRequest):Deferred<Response<String>>
 
-    @POST("api/student")
+    @GET("api/student")
     fun listStudent(@Query("classid")classId:String):Deferred<Response<List<StudentResponse>>>
 }

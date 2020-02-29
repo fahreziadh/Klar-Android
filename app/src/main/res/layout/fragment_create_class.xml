@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:animateLayoutChanges="true"
     tools:context=".view.fragment.CreateClass">
 
     <LinearLayout
@@ -14,6 +15,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/normal_padding"
@@ -40,6 +42,7 @@
                 android:text="Create Your Class" />
 
             <EditText
+                android:id="@+id/className"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/normal_radius"
@@ -48,6 +51,7 @@
                 android:padding="@dimen/normal_padding" />
 
             <EditText
+                android:id="@+id/classMajor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/normal_radius"
@@ -56,6 +60,7 @@
                 android:padding="@dimen/normal_padding" />
 
             <EditText
+                android:id="@+id/classGrade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/normal_radius"
@@ -69,6 +74,7 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/classLocation"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/normal_radius"
@@ -79,6 +85,7 @@
                     android:padding="@dimen/normal_padding" />
 
                 <EditText
+                    android:id="@+id/classDetailLocation"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
@@ -100,6 +107,7 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
+                    android:animateLayoutChanges="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -108,11 +116,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="1dp"
+                        android:id="@+id/onemonthcard"
                         android:layout_marginTop="@dimen/normal_radius"
                         android:layout_marginBottom="@dimen/normal_radius"
                         app:cardCornerRadius="@dimen/normal_radius">
 
                         <TextView
+                            android:id="@+id/onemonth"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="?selectableItemBackground"
@@ -127,10 +137,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/normal_radius"
                         android:layout_marginTop="@dimen/normal_radius"
+                        android:id="@+id/threemonthcard"
                         android:layout_marginBottom="@dimen/normal_radius"
                         app:cardCornerRadius="@dimen/normal_radius">
 
                         <TextView
+                            android:id="@+id/threemonth"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="?selectableItemBackground"
@@ -145,6 +157,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/normal_radius"
                         android:layout_marginTop="@dimen/normal_radius"
+                        android:id="@+id/sixmonthcard"
                         android:layout_marginBottom="@dimen/normal_radius"
                         app:cardCornerRadius="@dimen/normal_radius">
 
@@ -153,6 +166,7 @@
                             android:layout_height="wrap_content"
                             android:background="?selectableItemBackground"
                             android:clickable="true"
+                            android:id="@+id/sixmonth"
                             android:padding="@dimen/normal_padding"
                             android:text="6 Month" />
 
@@ -186,10 +200,12 @@
                         android:layout_weight="3"
                         android:background="?selectableItemBackground"
                         android:clickable="true"
+                        android:id="@+id/sunday"
                         android:gravity="center"
                         android:text="00:00" />
 
                     <TextView
+                        android:id="@+id/sundayRemove"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -212,6 +228,7 @@
                         android:text="Monday" />
 
                     <TextView
+                        android:id="@+id/monday"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
@@ -221,6 +238,7 @@
                         android:text="00:00" />
 
                     <TextView
+                        android:id="@+id/mondayRemove"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -245,6 +263,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:id="@+id/tuesday"
                         android:layout_weight="3"
                         android:background="?selectableItemBackground"
                         android:clickable="true"
@@ -253,6 +272,7 @@
 
                     <TextView
                         android:layout_width="0dp"
+                        android:id="@+id/tuesdayRemove"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="?selectableItemBackground"
@@ -276,6 +296,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:id="@+id/wednesday"
                         android:layout_weight="3"
                         android:background="?selectableItemBackground"
                         android:clickable="true"
@@ -285,6 +306,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:id="@+id/wednesdayRemove"
                         android:layout_weight="1"
                         android:background="?selectableItemBackground"
                         android:clickable="true"
@@ -308,6 +330,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
+                        android:id="@+id/thursday"
                         android:background="?selectableItemBackground"
                         android:clickable="true"
                         android:gravity="center"
@@ -316,6 +339,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:id="@+id/thursdayRemove"
                         android:layout_weight="1"
                         android:background="?selectableItemBackground"
                         android:clickable="true"
@@ -341,11 +365,13 @@
                         android:layout_weight="3"
                         android:background="?selectableItemBackground"
                         android:clickable="true"
+                        android:id="@+id/friday"
                         android:gravity="center"
                         android:text="00:00" />
 
                     <TextView
                         android:layout_width="0dp"
+                        android:id="@+id/fridayRemove"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="?selectableItemBackground"
@@ -367,6 +393,7 @@
                         android:text="Saturday" />
 
                     <TextView
+                        android:id="@+id/saturday"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
@@ -376,6 +403,7 @@
                         android:text="00:00" />
 
                     <TextView
+                        android:id="@+id/saturdayRemove"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -394,11 +422,13 @@
                 android:paddingTop="@dimen/normal_padding" />
 
             <DatePicker
+                android:id="@+id/startDate"
                 android:paddingTop="@dimen/normal_padding"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <TextView
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/normal_padding"
@@ -407,6 +437,7 @@
 
             <TextView
                 android:paddingTop="@dimen/normal_radius"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="on January 12th"
@@ -421,6 +452,7 @@
                 android:background="@drawable/bg_button_1"
                 android:clickable="true"
                 android:focusable="true"
+                android:layout_marginBottom="@dimen/normal_padding"
                 android:gravity="center"
                 android:padding="@dimen/normal_padding"
                 android:text="Create Class"

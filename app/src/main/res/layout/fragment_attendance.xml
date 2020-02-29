@@ -14,22 +14,23 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_normal_edittext"
             android:clickable="true"
             android:padding="@dimen/normal_padding"
-            android:text="1 April 2020"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
         <CheckBox
-            android:layout_marginLeft="@dimen/normal_radius"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_radius"
             android:clickable="true"
             android:padding="@dimen/normal_padding"
             android:text="All Attend"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:visibility="gone" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

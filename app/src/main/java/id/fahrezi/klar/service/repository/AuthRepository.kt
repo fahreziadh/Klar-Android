@@ -2,11 +2,8 @@ package id.fahrezi.klar.service.repository
 
 import com.squareup.moshi.Moshi
 import id.fahrezi.klar.service.Api
-import id.fahrezi.klar.service.model.Request.ChangeProfileRequest
-import id.fahrezi.klar.service.model.Request.LoginRequest
-import id.fahrezi.klar.service.model.Request.RegisterRequest
-import id.fahrezi.klar.service.model.Response.AuthResponse
-import id.fahrezi.klar.service.model.Response.ErrorResponse
+import id.fahrezi.klar.service.model.Request.*
+import id.fahrezi.klar.service.model.Response.*
 import retrofit2.Response
 
 class AuthRepository(private val api: Api) : BaseRepository() {
@@ -14,12 +11,34 @@ class AuthRepository(private val api: Api) : BaseRepository() {
         val res = api.register(request).await()
         return res
     }
-    suspend fun login(request: LoginRequest):Response<AuthResponse>{
+
+    suspend fun login(request: LoginRequest): Response<AuthResponse> {
         val res = api.login(request).await()
         return res
     }
-    suspend fun changeProfile(request:ChangeProfileRequest):Response<String>{
-        val res=api.changeProfile(request).await()
+
+    suspend fun changeProfile(request: ChangeProfileRequest): Response<String> {
+        val res = api.changeProfile(request).await()
+        return res
+    }
+
+    suspend fun listStudent(classid: String): Response<List<StudentResponse>> {
+        val res = api.listStudent(classid).await()
+        return res
+    }
+
+    suspend fun listAttendance(scheduleid: String): Response<List<AttendanceResponse>> {
+        val res = api.listAttendance(scheduleid).await()
+        return res
+    }
+
+    suspend fun inputAttendance(request: AttendanceRequest): Response<String> {
+        val res = api.inputAttendance(request).await()
+        return res
+    }
+
+    suspend fun joinClass(request: JoinClassRequest): Response<String> {
+        val res = api.joinClass(request).await()
         return res
     }
 }
